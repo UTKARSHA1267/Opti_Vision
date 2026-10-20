@@ -1,25 +1,25 @@
-# Datasets
-DATASET/
-data/
-datasets/
-
-# Model weights
+# Dataset and model weights
+phase1/DATASET/
 *.pt
-*.pth
-*.onnx
 
-# Python
+# Large outputs the scripts can rebuild
+phase1/outputs/profiles/raw/
+phase1/outputs/profiles/profile_counts.parquet
+phase1/outputs/data/backgrounds/
+phase1/outputs/data/boxes.parquet
+phase1/outputs/data/frames.parquet
+phase1/outputs/data/stream_index.parquet
+phase1/outputs/data/sequences.parquet
+phase2/outputs/image_features/
+
+# Python and logs
 __pycache__/
-*.py[cod]
-.venv/
-venv/
-
-# Secrets
-.env
-.env.*
-
-# Temporary logs
+*.pyc
+*.log
 *_log.txt
+*.tmp
 
-# Generated profiling outputs
-outputs/profiles/diagnostics/examples/
+# Secrets (never commit these)
+kaggle.json
+access_token
+.env

@@ -1,0 +1,13 @@
+"""Lets Phase 2 scripts use Phase 1's code, config and outputs.
+
+Import this first in every Phase 2 script:   import _paths  # noqa: F401
+"""
+import sys
+from pathlib import Path
+
+PHASE2 = Path(__file__).resolve().parent
+PHASE1 = PHASE2.parent / "phase1"
+OUT2 = PHASE2 / "outputs"
+
+if str(PHASE1) not in sys.path:
+    sys.path.insert(0, str(PHASE1))

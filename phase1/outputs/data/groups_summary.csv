@@ -1,0 +1,52 @@
+stream,split_group,split,sequences,n_seq,minutes,weathers
+s06,G04,test,MVI_39051,1,0.7,sunny
+s08,G05,test,MVI_39271,1,1.0,sunny
+s09,G06,test,MVI_39311,1,1.0,sunny
+s13,G10,test,MVI_39501 MVI_39511,2,0.6,cloudy
+s17,G12,test,MVI_39801 MVI_39811,2,1.3,night
+s18,G12,test,MVI_39821,1,0.6,night
+s20,G12,test,MVI_39861,1,0.5,night
+s27,G17,test,MVI_40191 MVI_40192,2,3.1,cloudy
+s40,G25,test,MVI_40871,1,1.1,rainy
+s44,G29,test,MVI_40981,1,1.3,night
+s45,G30,test,MVI_40991 MVI_40992,2,2.7,night
+s02,G02,train,MVI_20032 MVI_20033 MVI_20034 MVI_20035,4,1.9,sunny
+s14,G02,train,MVI_39761 MVI_40141,2,2.2,"cloudy,night"
+s15,G02,train,MVI_39771,1,0.4,night
+s19,G02,train,MVI_39851,1,0.9,night
+s22,G02,train,MVI_40131,1,1.1,cloudy
+s48,G02,train,MVI_63521 MVI_63525,2,2.0,rainy
+s49,G02,train,MVI_63544,1,0.8,rainy
+s05,G03,train,MVI_39031,1,1.0,sunny
+s07,G03,train,MVI_39211,1,1.1,sunny
+s10,G07,train,MVI_39361,1,1.4,sunny
+s11,G08,train,MVI_39371,1,0.9,sunny
+s12,G09,train,MVI_39401,1,0.9,sunny
+s16,G11,train,MVI_39781,1,1.2,night
+s24,G11,train,MVI_40161 MVI_40162,2,2.2,cloudy
+s31,G11,train,MVI_40701,1,0.8,cloudy
+s34,G11,train,MVI_40742 MVI_40743,2,2.2,night
+s21,G13,train,MVI_39931,1,0.8,cloudy
+s23,G14,train,MVI_40152,1,1.2,cloudy
+s25,G15,train,MVI_40171 MVI_40172,2,2.5,cloudy
+s26,G16,train,MVI_40181,1,1.1,cloudy
+s28,G16,train,MVI_40201 MVI_40204,2,1.4,cloudy
+s30,G16,train,MVI_40241 MVI_40243 MVI_40244,3,3.3,cloudy
+s33,G16,train,MVI_40732 MVI_40751 MVI_40752,3,3.5,night
+s46,G16,train,MVI_41063,1,1.0,sunny
+s47,G16,train,MVI_41073,1,1.2,sunny
+s50,G16,train,MVI_63552 MVI_63553 MVI_63554,3,2.7,rainy
+s51,G16,train,MVI_63561 MVI_63562 MVI_63563,3,2.6,rainy
+s29,G18,train,MVI_40211 MVI_40212 MVI_40213,3,3.6,cloudy
+s35,G20,train,MVI_40761 MVI_40762 MVI_40763,3,3.7,night
+s37,G22,train,MVI_40792 MVI_40793,2,2.5,night
+s38,G23,train,MVI_40851 MVI_40852 MVI_40853 MVI_40854 MVI_40855,5,4.1,cloudy
+s41,G26,train,MVI_40891 MVI_40892,2,2.2,rainy
+s42,G27,train,MVI_40901 MVI_40902 MVI_40903 MVI_40904 MVI_40905,5,4.3,rainy
+s43,G28,train,MVI_40962 MVI_40963,2,2.5,night
+s01,G01,val,MVI_20011 MVI_20012,2,1.1,sunny
+s03,G01,val,MVI_20051 MVI_20052,2,1.1,sunny
+s04,G01,val,MVI_20061 MVI_20062 MVI_20063 MVI_20064 MVI_20065,5,2.9,sunny
+s32,G19,val,MVI_40711 MVI_40712 MVI_40714,3,3.1,cloudy
+s36,G21,val,MVI_40771 MVI_40772 MVI_40773 MVI_40774 MVI_40775,5,3.9,night
+s39,G24,val,MVI_40863 MVI_40864,2,2.1,rainy

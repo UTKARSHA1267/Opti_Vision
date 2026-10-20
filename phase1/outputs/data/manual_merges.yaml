@@ -1,0 +1,10 @@
+# Same bus stop on the left
+- [MVI_20011, MVI_20012, MVI_20051, MVI_20052, MVI_20061, MVI_20062, MVI_20063, MVI_20064, MVI_20065]
+# Diagonal road with long fence
+- [MVI_39781, MVI_40161, MVI_40162, MVI_40701, MVI_40743]
+# Road with central line and greenery
+- [MVI_39761, MVI_40141, MVI_63544, MVI_39771]
+# Hedge on upper left, diagonal highway
+- [MVI_40181, MVI_40201, MVI_40204, MVI_40241, MVI_40243, MVI_40244, MVI_41063, MVI_41073, MVI_63552, MVI_63553, MVI_63554, MVI_63561, MVI_63562, MVI_63563]
+# Road with trees on the left
+- [MVI_39031, MVI_39211]
