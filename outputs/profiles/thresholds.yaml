@@ -1,0 +1,12 @@
+yolov8m_320: 0.25
+yolov8m_480: 0.35
+yolov8m_640: 0.45
+yolov8m_960: 0.5
+yolov8n_320: 0.15
+yolov8n_480: 0.25
+yolov8n_640: 0.3
+yolov8n_960: 0.35
+yolov8s_320: 0.2
+yolov8s_480: 0.3
+yolov8s_640: 0.4
+yolov8s_960: 0.45

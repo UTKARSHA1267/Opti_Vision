@@ -1,0 +1,25 @@
+# Datasets
+DATASET/
+data/
+datasets/
+
+# Model weights
+*.pt
+*.pth
+*.onnx
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+
+# Temporary logs
+*_log.txt
+
+# Generated profiling outputs
+outputs/profiles/diagnostics/examples/

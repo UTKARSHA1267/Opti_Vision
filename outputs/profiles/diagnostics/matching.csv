@@ -1,0 +1,7 @@
+config,frames,matched_per_frame,extra_per_frame(FP),missed_per_frame(FN),median_h_matched,median_h_extra,extra_smaller_than_20px_%,median_h_missed
+yolov8n_320,3000,4.37,0.37,3.34,65.2,52.5,0.0,38.3
+yolov8n_640,3000,6.48,0.85,1.23,54.8,33.6,10.4,36.2
+yolov8s_640,3000,6.92,1.03,0.79,53.3,31.1,12.6,34.1
+yolov8m_640,3000,6.93,0.99,0.78,53.6,30.4,12.5,33.2
+yolov8m_960,3000,7.08,1.17,0.64,52.5,28.1,16.8,34.1
+yolov8s_960,3000,7.09,1.25,0.62,51.9,27.2,19.7,38.5
