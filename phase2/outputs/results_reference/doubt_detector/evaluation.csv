@@ -1,0 +1,4 @@
+predictor,MAE,rank_corr_across_settings,gap_corr,coverage_10_90_%
+prior (average error per setting),0.0578,0.7069,,
+confidence only,0.0555,0.7048,0.1633,
+doubt detector (all clues),0.0532,0.7075,0.1434,73.9621

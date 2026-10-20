@@ -1,0 +1,33 @@
+{
+ "features": [
+  "obs_count",
+  "obs_count_std",
+  "obs_conf",
+  "obs_unsure",
+  "obs_near",
+  "obs_crowded",
+  "obs_count_change",
+  "rel_brightness",
+  "rel_blur",
+  "rel_motion",
+  "obs_setting_cost",
+  "probe_rd",
+  "probe_age",
+  "probe_base_cost",
+  "cand_setting",
+  "cand_cost",
+  "cand_prior_err",
+  "cand_model",
+  "cand_imgsz",
+  "cand_fps",
+  "cand_same_base_as_probe"
+ ],
+ "trees": 13,
+ "holdout_streams": [
+  "s37",
+  "s25",
+  "s33",
+  "s07",
+  "s51"
+ ]
+}

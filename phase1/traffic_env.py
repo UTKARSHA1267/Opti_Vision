@@ -15,7 +15,7 @@ The true error is only used for scoring (and by the hindsight oracle, which is a
 """
 import numpy as np
 
-from config import (COST_JITTER_SIGMA, DEADLINE_MS, ENV_DIR, HORIZON_SEGMENTS, N_CAMERAS,
+from config import (COST_JITTER_SIGMA, DEADLINE_MS, ENV_DIR, EVAL_TARGET, HORIZON_SEGMENTS, N_CAMERAS,
                     REWARD_COST_WEIGHT, REWARD_DEADLINE_WEIGHT, REWARD_OVERRIDE_WEIGHT,
                     SEGMENT_SECONDS, UTILIZATION_TARGET)
 from scheduler import BudgetScheduler
@@ -24,11 +24,21 @@ SEGMENT_MS = SEGMENT_SECONDS * 1000
 
 
 class SegmentTable:
-    def __init__(self, path=ENV_DIR / "segment_table.npz"):
+    def __init__(self, path=ENV_DIR / "segment_table.npz", target=EVAL_TARGET, verbose=True):
         d = np.load(path, allow_pickle=False)
         for k in d.files:
             setattr(self, k, d[k])
         self.n_configs = len(self.config_names)
+        self.target = target
+        if target == "reference":
+            # Error = difference from the most expensive setting. Needs no labels, so every segment counts.
+            self.label_err, self.label_valid = self.err, self.valid
+            self.err = self.refdiff.astype(float).copy()
+            self.valid = np.ones(len(self.err), dtype=bool)
+            train = self.stream_split[self.stream_of_seg] == "train"
+            self.err_prior = np.nanmean(self.err[train], axis=0)
+        if verbose:
+            print(f"[evaluation target: {target}]", flush=True)
 
     def streams_in(self, split):
         return np.flatnonzero(self.stream_split == split)

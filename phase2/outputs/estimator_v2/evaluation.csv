@@ -1,0 +1,7 @@
+predictor,states,MAE,rank_corr_across_settings,gap_corr
+prior,3312,0.1043,0.4194,
+"estimator v2, all states",3312,0.0997,0.4226,0.0009
+  no probe yet,909,0.0981,0.4425,-0.0527
+  probe 1 segment ago,409,0.0975,0.4098,0.0727
+  probe 2-3 segments ago,827,0.1014,0.4214,0.0136
+  probe 4-6 segments ago,1167,0.1004,0.4124,0.0181

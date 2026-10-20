@@ -1,0 +1,14 @@
+Probe table: 2,824 segments x 9 model/resolutions, reference yolov8s_960, frames at offsets [0]
+Probe cost (ms) when the camera runs each model/resolution:
+  yolov8m_320      4.01
+  yolov8m_480      4.52
+  yolov8n_320      3.84
+  yolov8n_480      4.12
+  yolov8n_640      4.47
+  yolov8s_320      3.85
+  yolov8s_480      4.15
+  yolov8s_640      4.71
+  yolov8s_960      5.82
+
+Train: rank correlation of a probe on the cheapest setting at t-1 with its loss at t: 0.229
+Saved /DATA2/nilesh/rl_video_project/phase2/outputs/probe.npz

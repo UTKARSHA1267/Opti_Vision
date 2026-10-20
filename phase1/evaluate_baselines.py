@@ -21,7 +21,7 @@ import pandas as pd
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
-from config import BUDGETS_MS_PER_CAM_S, ENV_DIR, EVAL_SCENARIOS, SEED, SEGMENT_SECONDS  # noqa: E402
+from config import BUDGETS_MS_PER_CAM_S, ENV_DIR, EVAL_SCENARIOS, SEED, SEGMENT_SECONDS, TARGET_TAG  # noqa: E402
 from policies import ALL_BASELINES  # noqa: E402
 from traffic_env import MultiCameraEnv, SegmentTable  # noqa: E402
 
@@ -96,7 +96,7 @@ def main():
         df.loc[m, "compute_vs_fixed_%"] = (100 * (df[m].gpu_ms_per_cam_s - fixed.gpu_ms_per_cam_s)
                                           / fixed.gpu_ms_per_cam_s).round(1)
     ENV_DIR.mkdir(parents=True, exist_ok=True)
-    df.to_csv(ENV_DIR / f"baselines_{args.split}.csv", index=False)
+    df.to_csv(ENV_DIR / f"baselines_{args.split}{TARGET_TAG}.csv", index=False)
 
     fig, axes = plt.subplots(1, len(BUDGETS_MS_PER_CAM_S), figsize=(5 * len(BUDGETS_MS_PER_CAM_S), 4), sharey=True)
     for ax, b in zip(np.atleast_1d(axes), BUDGETS_MS_PER_CAM_S):
@@ -109,13 +109,13 @@ def main():
     np.atleast_1d(axes)[0].set_ylabel(f"counting error ({args.split})")
     np.atleast_1d(axes)[-1].legend(fontsize=8)
     fig.tight_layout()
-    fig.savefig(ENV_DIR / f"baselines_{args.split}.png", dpi=140)
+    fig.savefig(ENV_DIR / f"baselines_{args.split}{TARGET_TAG}.png", dpi=140)
 
     pd.set_option("display.width", 200)
     cols = ["budget_ms_per_cam_s", "method", "err", "worst_cam_err", "gpu_ms_per_cam_s", "err_vs_fixed_%",
             "compute_vs_fixed_%", "deadline_miss_%", "override_%", "infeasible_%"]
     print(df[cols].to_string(index=False))
-    print(f"\nSaved {ENV_DIR / f'baselines_{args.split}.csv'} and .png")
+    print(f"\nSaved {ENV_DIR / f'baselines_{args.split}{TARGET_TAG}.csv'} and .png")
 
 
 if __name__ == "__main__":

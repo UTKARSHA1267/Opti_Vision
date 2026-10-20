@@ -95,3 +95,13 @@ COUNT_RULE_THRESHOLDS = (5, 15)   # vehicles: below -> cheap, between -> medium,
 REPROFILE_PERIOD = 15             # periodic re-tuning every 15 segments (30 s) per camera
 REPROFILE_TAU = 0.10              # pick the cheapest setting within this difference from the best setting
 REPROFILE_FRAMES = 5              # profiling runs each model/resolution on this many frames (a short snippet)
+
+# ---------------- Evaluation target ----------------
+# "labels":    counting error against the dataset's hand labels
+# "reference": error against the most expensive setting (the "golden configuration" used in video
+#              analytics research such as Chameleon/VideoStorm). No label quirks, and probes measure it directly.
+# Choose per run without editing this file:   EVAL_TARGET=reference python script.py
+EVAL_TARGET = os.environ.get("EVAL_TARGET", "labels")
+if EVAL_TARGET not in ("labels", "reference"):
+    raise SystemExit(f"EVAL_TARGET must be 'labels' or 'reference', not {EVAL_TARGET!r}")
+TARGET_TAG = "" if EVAL_TARGET == "labels" else "_ref"
