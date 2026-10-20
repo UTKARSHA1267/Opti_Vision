@@ -63,3 +63,35 @@ BENCH_BATCH = 16
 COST_COLUMN = "ms_batched"
 
 PROFILE_DIR = OUT_DIR / "profiles"
+
+# ---------------- Part C: environment and baselines ----------------
+ENV_DIR = OUT_DIR / "env"
+
+# A segment is used for scoring only if at least this share of its frames has valid labels.
+MIN_EVAL_FRACTION = 0.5
+
+# Scenario: this many cameras play side by side for this many 2-second segments.
+N_CAMERAS = 6
+HORIZON_SEGMENTS = 150            # 5 minutes
+
+# GPU budget levels: milliseconds of GPU time per camera per second of video (tight, medium, generous).
+BUDGETS_MS_PER_CAM_S = [3.0, 7.0, 15.0]
+
+# The scheduler plans to use at most this share of the budget (spare capacity for timing variation).
+UTILIZATION_TARGET = 0.9
+# Random variation of real GPU time around the measured cost (log-normal sigma).
+COST_JITTER_SIGMA = 0.15
+# Results of a segment must be ready within this many ms (one segment = 2000 ms).
+DEADLINE_MS = 2000
+
+# Reward = -(error + COST_W * budget share used + DEADLINE_W * deadline misses + OVERRIDE_W * override share)
+REWARD_COST_WEIGHT = 0.05
+REWARD_DEADLINE_WEIGHT = 1.0
+REWARD_OVERRIDE_WEIGHT = 0.02
+
+# Baselines
+EVAL_SCENARIOS = 20
+COUNT_RULE_THRESHOLDS = (5, 15)   # vehicles: below -> cheap, between -> medium, above -> expensive
+REPROFILE_PERIOD = 15             # periodic re-tuning every 15 segments (30 s) per camera
+REPROFILE_TAU = 0.10              # pick the cheapest setting within this difference from the best setting
+REPROFILE_FRAMES = 5              # profiling runs each model/resolution on this many frames (a short snippet)
