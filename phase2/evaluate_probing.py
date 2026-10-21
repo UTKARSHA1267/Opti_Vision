@@ -30,7 +30,7 @@ def run_episode(env, policy, scenario, budget, seed):
     env.rng = np.random.default_rng(seed)
     obs = env.reset(scenario=scenario, budget_ms_per_cam_s=budget)
     policy.reset(env)
-    errs, work, probe_ms, misses, probes = [], 0.0, 0.0, 0, 0
+    errs, work, probe_ms, misses, probes, switches = [], 0.0, 0.0, 0, 0, 0
     done = False
     while not done:
         a = policy.act(obs, env)
@@ -42,12 +42,14 @@ def run_episode(env, policy, scenario, budget, seed):
         probe_ms += info.get("probe_ms", 0.0)
         probes += int(np.sum(info.get("probe", 0)))
         misses += info["deadline_miss"]
+        switches += info.get("switches", 0)
     steps = env.horizon
     return {"err": float(np.mean(errs)) if errs else np.nan,
             "gpu_ms_per_cam_s": work / (env.n * steps * SEGMENT_SECONDS),
             "probe_share_%": 100 * probe_ms / max(work, 1e-9),
             "probes_per_segment": probes / steps,
-            "deadline_miss_%": 100 * misses / steps}
+            "deadline_miss_%": 100 * misses / steps,
+            "switches_per_cam_min": switches / env.n / (steps * SEGMENT_SECONDS / 60)}
 
 
 def main():
