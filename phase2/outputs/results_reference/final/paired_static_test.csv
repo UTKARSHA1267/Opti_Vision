@@ -1,0 +1,16 @@
+env,split,budget,rl,baseline,diff,ci_low,ci_high,relative_%,verdict
+static,test,3.0,rl_steer,fixed_best,0.0127,-0.0007,0.0253,1.2745,no significant difference
+static,test,3.0,rl_steer,count_rule,-0.5917,-0.6381,-0.5468,-36.9943,RL better
+static,test,3.0,rl_steer,periodic_reprofile,-1.8434,-1.8951,-1.7932,-64.6531,RL better
+static,test,3.0,rl_steer,budget_sharing,0.0329,0.0147,0.0507,3.3747,RL worse
+static,test,3.0,rl_steer,tuned_margin,0.0329,0.0146,0.0506,3.3747,RL worse
+static,test,7.0,rl_steer,fixed_best,-0.1273,-0.1375,-0.1171,-14.7468,RL better
+static,test,7.0,rl_steer,count_rule,-0.2776,-0.2998,-0.2545,-27.3787,RL better
+static,test,7.0,rl_steer,periodic_reprofile,-0.8826,-0.93,-0.8375,-54.5222,RL better
+static,test,7.0,rl_steer,budget_sharing,0.0075,-0.0007,0.0155,1.0243,no significant difference
+static,test,7.0,rl_steer,tuned_margin,0.0075,-0.0007,0.0157,1.0243,no significant difference
+static,test,15.0,rl_steer,fixed_best,-0.1548,-0.1661,-0.1431,-24.076,RL better
+static,test,15.0,rl_steer,count_rule,-0.3228,-0.3421,-0.3037,-39.8062,RL better
+static,test,15.0,rl_steer,periodic_reprofile,-0.5195,-0.571,-0.4716,-51.5586,RL better
+static,test,15.0,rl_steer,budget_sharing,0.014,0.0042,0.0249,2.9593,RL worse
+static,test,15.0,rl_steer,tuned_margin,0.014,0.0042,0.0247,2.9593,RL worse

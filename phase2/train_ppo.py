@@ -12,6 +12,7 @@ Run:  python -u train_ppo.py                    (RL_TIMESTEPS steps, see p2_conf
       python -u train_ppo.py --timesteps 20000  (quick test)
       python -u train_ppo.py --dynamic          (dynamic environment)
       python -u train_ppo.py --dynamic --mode margin   (RL margin controller)
+      python -u train_ppo.py --dynamic --mode margin --seed 1   (another training seed)
 """
 import _paths  # noqa: F401
 import argparse
@@ -88,18 +89,22 @@ def main():
     ap.add_argument("--dynamic", action="store_true", help="train in the dynamic environment (shared GPU, switching costs)")
     ap.add_argument("--mode", default="steer", choices=["steer", "margin"],
                     help="steer: per-camera importance + reserve; margin: pick one safety margin per segment")
+    ap.add_argument("--seed", type=int, default=SEED,
+                    help=f"training seed (default {SEED}); other seeds save to a folder ending in _s<seed>")
     args = ap.parse_args()
     global OUT, ENV_CLS
     if args.dynamic:
         OUT, ENV_CLS = RESULTS2 / "rl_dynamic", DynamicEnv
     if args.mode == "margin":
         OUT = OUT.parent / (OUT.name + "_margin")
-    print(f"Environment: {ENV_CLS.__name__}, action mode: {args.mode}, saving to {OUT.name}/", flush=True)
+    if args.seed != SEED:
+        OUT = OUT.parent / (OUT.name + f"_s{args.seed}")
+    print(f"Environment: {ENV_CLS.__name__}, action mode: {args.mode}, seed {args.seed}, saving to {OUT.name}/", flush=True)
     torch.set_num_threads(4)
 
     table = SegmentTable()
     OUT.mkdir(parents=True, exist_ok=True)
-    venv = DummyVecEnv([lambda i=i: VideoAllocEnv(table, split="train", seed=SEED + 100 * i, core_cls=ENV_CLS,
+    venv = DummyVecEnv([lambda i=i: VideoAllocEnv(table, split="train", seed=args.seed + 100 * i, core_cls=ENV_CLS,
                                                   mode=args.mode)
                         for i in range(RL_N_ENVS)])
     venv = VecNormalize(venv, norm_obs=True, norm_reward=True, clip_obs=10.0, gamma=0.95)
@@ -116,7 +121,7 @@ def main():
     else:                           # continuous steering: start close to the all-zero action (= budget sharing)
         kwargs = dict(ent_coef=0.0, policy_kwargs=dict(net_arch=[128, 128], log_std_init=-1.0))
     model = PPO("MlpPolicy", venv, n_steps=300, batch_size=600, n_epochs=10, learning_rate=3e-4,
-                gamma=0.95, gae_lambda=0.95, clip_range=0.2, seed=SEED, verbose=0, device="cpu", **kwargs)
+                gamma=0.95, gae_lambda=0.95, clip_range=0.2, seed=args.seed, verbose=0, device="cpu", **kwargs)
     every = args.eval_every or max(1, args.timesteps // (10 * RL_N_ENVS))
     cb = EvalCallback(table, scenarios, venv, every, baseline)
     t0 = time.time()
