@@ -1,0 +1,109 @@
+cameras,budget,agent,baseline,diff,ci_low,ci_high,relative_%,verdict
+24,3.0,ippo,fixed_best,-0.3172,-0.3812,-0.2531,-16.0496,ippo better
+24,3.0,ippo,count_rule,-0.4349,-0.4723,-0.4005,-20.7648,ippo better
+24,3.0,ippo,periodic_reprofile,-1.172,-1.2152,-1.1329,-41.3927,ippo better
+24,3.0,ippo,budget_sharing,-0.733,-0.7521,-0.7143,-30.6378,ippo better
+24,3.0,ippo,tuned_margin,0.0483,0.0374,0.0595,2.9997,ippo worse
+24,3.0,ippo,state_aware_best,-0.2499,-0.3062,-0.1945,-13.0866,ippo better
+24,3.0,ippo,mappo,-0.0635,-0.0764,-0.0516,-3.6858,ippo better
+24,3.0,ippo,mappo_cam4-16_nocount,0.0408,0.0322,0.0495,2.5228,ippo worse
+24,3.0,ippo,mappo_cam4-8,-0.0172,-0.028,-0.0066,-1.0233,ippo better
+24,3.0,mappo,fixed_best,-0.2537,-0.3245,-0.1831,-12.8369,mappo better
+24,3.0,mappo,count_rule,-0.3714,-0.4131,-0.3308,-17.7326,mappo better
+24,3.0,mappo,periodic_reprofile,-1.1085,-1.1462,-1.0732,-39.1499,mappo better
+24,3.0,mappo,budget_sharing,-0.6695,-0.6929,-0.6458,-27.9834,mappo better
+24,3.0,mappo,tuned_margin,0.1118,0.0937,0.1307,6.9413,mappo worse
+24,3.0,mappo,state_aware_best,-0.1864,-0.2484,-0.1242,-9.7606,mappo better
+24,3.0,mappo,ippo,0.0635,0.0516,0.0765,3.8269,mappo worse
+24,3.0,mappo,mappo_cam4-16_nocount,0.1043,0.0887,0.1206,6.4462,mappo worse
+24,3.0,mappo,mappo_cam4-8,0.0463,0.0298,0.0619,2.7645,mappo worse
+24,3.0,mappo_cam4-16_nocount,fixed_best,-0.3581,-0.4162,-0.3013,-18.1154,mappo_cam4-16_nocount better
+24,3.0,mappo_cam4-16_nocount,count_rule,-0.4757,-0.5071,-0.4452,-22.7146,mappo_cam4-16_nocount better
+24,3.0,mappo_cam4-16_nocount,periodic_reprofile,-1.2128,-1.2604,-1.1682,-42.8349,mappo_cam4-16_nocount better
+24,3.0,mappo_cam4-16_nocount,budget_sharing,-0.7738,-0.7927,-0.7546,-32.3446,mappo_cam4-16_nocount better
+24,3.0,mappo_cam4-16_nocount,tuned_margin,0.0075,0.0018,0.0133,0.4651,mappo_cam4-16_nocount worse
+24,3.0,mappo_cam4-16_nocount,state_aware_best,-0.2907,-0.341,-0.2416,-15.2254,mappo_cam4-16_nocount better
+24,3.0,mappo_cam4-16_nocount,ippo,-0.0408,-0.0497,-0.0321,-2.4607,mappo_cam4-16_nocount better
+24,3.0,mappo_cam4-16_nocount,mappo,-0.1043,-0.1202,-0.0888,-6.0559,mappo_cam4-16_nocount better
+24,3.0,mappo_cam4-16_nocount,mappo_cam4-8,-0.058,-0.0688,-0.0477,-3.4588,mappo_cam4-16_nocount better
+24,3.0,mappo_cam4-8,fixed_best,-0.3001,-0.3598,-0.2404,-15.1817,mappo_cam4-8 better
+24,3.0,mappo_cam4-8,count_rule,-0.4177,-0.4545,-0.3819,-19.9457,mappo_cam4-8 better
+24,3.0,mappo_cam4-8,periodic_reprofile,-1.1549,-1.2028,-1.1103,-40.7868,mappo_cam4-8 better
+24,3.0,mappo_cam4-8,budget_sharing,-0.7158,-0.7386,-0.6924,-29.9207,mappo_cam4-8 better
+24,3.0,mappo_cam4-8,tuned_margin,0.0655,0.0544,0.0771,4.0645,mappo_cam4-8 worse
+24,3.0,mappo_cam4-8,state_aware_best,-0.2327,-0.2856,-0.181,-12.1881,mappo_cam4-8 better
+24,3.0,mappo_cam4-8,ippo,0.0172,0.0069,0.0278,1.0338,mappo_cam4-8 worse
+24,3.0,mappo_cam4-8,mappo,-0.0463,-0.0625,-0.03,-2.6901,mappo_cam4-8 better
+24,3.0,mappo_cam4-8,mappo_cam4-16_nocount,0.058,0.0478,0.0688,3.5827,mappo_cam4-8 worse
+24,7.0,ippo,fixed_best,-0.3128,-0.3708,-0.2553,-22.801,ippo better
+24,7.0,ippo,count_rule,-0.2541,-0.3167,-0.1927,-19.3533,ippo better
+24,7.0,ippo,periodic_reprofile,-0.9354,-1.0117,-0.8648,-46.9,ippo better
+24,7.0,ippo,budget_sharing,-0.3733,-0.4276,-0.3177,-26.0627,ippo better
+24,7.0,ippo,tuned_margin,0.0602,0.0529,0.067,6.0246,ippo worse
+24,7.0,ippo,state_aware_best,-0.2609,-0.3092,-0.2125,-19.7664,ippo better
+24,7.0,ippo,mappo,-0.0397,-0.049,-0.0303,-3.6148,ippo better
+24,7.0,ippo,mappo_cam4-16_nocount,0.0474,0.0389,0.0563,4.6811,ippo worse
+24,7.0,ippo,mappo_cam4-8,-0.0331,-0.0471,-0.019,-3.0295,ippo better
+24,7.0,mappo,fixed_best,-0.2731,-0.3324,-0.2152,-19.9057,mappo better
+24,7.0,mappo,count_rule,-0.2144,-0.2781,-0.1522,-16.3287,mappo better
+24,7.0,mappo,periodic_reprofile,-0.8956,-0.9673,-0.8265,-44.9085,mappo better
+24,7.0,mappo,budget_sharing,-0.3336,-0.388,-0.2779,-23.2897,mappo better
+24,7.0,mappo,tuned_margin,0.0999,0.0886,0.1117,10.001,mappo worse
+24,7.0,mappo,state_aware_best,-0.2212,-0.2705,-0.1739,-16.7573,mappo better
+24,7.0,mappo,ippo,0.0397,0.0306,0.0492,3.7504,mappo worse
+24,7.0,mappo,mappo_cam4-16_nocount,0.0871,0.075,0.1002,8.607,mappo worse
+24,7.0,mappo,mappo_cam4-8,0.0066,-0.0091,0.0229,0.6072,no significant difference
+24,7.0,mappo_cam4-16_nocount,fixed_best,-0.3601,-0.4229,-0.3002,-26.2531,mappo_cam4-16_nocount better
+24,7.0,mappo_cam4-16_nocount,count_rule,-0.3015,-0.3641,-0.2398,-22.9596,mappo_cam4-16_nocount better
+24,7.0,mappo_cam4-16_nocount,periodic_reprofile,-0.9827,-1.0638,-0.9074,-49.2745,mappo_cam4-16_nocount better
+24,7.0,mappo_cam4-16_nocount,budget_sharing,-0.4207,-0.4803,-0.3633,-29.369,mappo_cam4-16_nocount better
+24,7.0,mappo_cam4-16_nocount,tuned_margin,0.0128,0.0037,0.0221,1.2835,mappo_cam4-16_nocount worse
+24,7.0,mappo_cam4-16_nocount,state_aware_best,-0.3083,-0.3611,-0.2574,-23.3542,mappo_cam4-16_nocount better
+24,7.0,mappo_cam4-16_nocount,ippo,-0.0474,-0.0559,-0.0389,-4.4717,mappo_cam4-16_nocount better
+24,7.0,mappo_cam4-16_nocount,mappo,-0.0871,-0.1002,-0.0745,-7.9249,mappo_cam4-16_nocount better
+24,7.0,mappo_cam4-16_nocount,mappo_cam4-8,-0.0804,-0.0919,-0.0694,-7.3658,mappo_cam4-16_nocount better
+24,7.0,mappo_cam4-8,fixed_best,-0.2797,-0.3457,-0.2162,-20.3892,mappo_cam4-8 better
+24,7.0,mappo_cam4-8,count_rule,-0.2211,-0.2876,-0.1549,-16.8338,mappo_cam4-8 better
+24,7.0,mappo_cam4-8,periodic_reprofile,-0.9023,-0.9843,-0.8249,-45.2411,mappo_cam4-8 better
+24,7.0,mappo_cam4-8,budget_sharing,-0.3402,-0.402,-0.2776,-23.7527,mappo_cam4-8 better
+24,7.0,mappo_cam4-8,tuned_margin,0.0933,0.0779,0.1079,9.337,mappo_cam4-8 worse
+24,7.0,mappo_cam4-8,state_aware_best,-0.2278,-0.2858,-0.1724,-17.2597,mappo_cam4-8 better
+24,7.0,mappo_cam4-8,ippo,0.0331,0.0189,0.0468,3.1242,mappo_cam4-8 worse
+24,7.0,mappo_cam4-8,mappo,-0.0066,-0.0228,0.009,-0.6036,no significant difference
+24,7.0,mappo_cam4-8,mappo_cam4-16_nocount,0.0804,0.0692,0.0917,7.9515,mappo_cam4-8 worse
+24,15.0,ippo,fixed_best,-0.1171,-0.1342,-0.1011,-14.4071,ippo better
+24,15.0,ippo,count_rule,-0.1035,-0.1195,-0.0879,-12.9557,ippo better
+24,15.0,ippo,periodic_reprofile,-0.4035,-0.4267,-0.3806,-36.7141,ippo better
+24,15.0,ippo,budget_sharing,-0.04,-0.0487,-0.0312,-5.4381,ippo better
+24,15.0,ippo,tuned_margin,0.0229,0.017,0.0285,3.4065,ippo worse
+24,15.0,ippo,state_aware_best,0.0242,0.0185,0.03,3.5985,ippo worse
+24,15.0,ippo,mappo,-0.1128,-0.124,-0.1024,-13.9518,ippo better
+24,15.0,ippo,mappo_cam4-16_nocount,-0.0038,-0.0108,0.0029,-0.5396,no significant difference
+24,15.0,ippo,mappo_cam4-8,-0.1075,-0.1208,-0.0946,-13.389,ippo better
+24,15.0,mappo,fixed_best,-0.0043,-0.0229,0.0147,-0.5292,no significant difference
+24,15.0,mappo,count_rule,0.0093,-0.0083,0.027,1.1575,no significant difference
+24,15.0,mappo,periodic_reprofile,-0.2907,-0.3122,-0.2692,-26.453,mappo better
+24,15.0,mappo,budget_sharing,0.0728,0.0576,0.0888,9.8941,mappo worse
+24,15.0,mappo,tuned_margin,0.1357,0.1241,0.1479,20.1728,mappo worse
+24,15.0,mappo,state_aware_best,0.1369,0.1261,0.1491,20.3959,mappo worse
+24,15.0,mappo,ippo,0.1128,0.1025,0.1235,16.2139,mappo worse
+24,15.0,mappo,mappo_cam4-16_nocount,0.109,0.0948,0.1236,15.5868,mappo worse
+24,15.0,mappo,mappo_cam4-8,0.0053,-0.0107,0.0217,0.6541,no significant difference
+24,15.0,mappo_cam4-16_nocount,fixed_best,-0.1133,-0.1325,-0.0951,-13.9428,mappo_cam4-16_nocount better
+24,15.0,mappo_cam4-16_nocount,count_rule,-0.0998,-0.1174,-0.0821,-12.4835,mappo_cam4-16_nocount better
+24,15.0,mappo_cam4-16_nocount,periodic_reprofile,-0.3998,-0.4239,-0.3764,-36.3708,mappo_cam4-16_nocount better
+24,15.0,mappo_cam4-16_nocount,budget_sharing,-0.0362,-0.0442,-0.0279,-4.9251,mappo_cam4-16_nocount better
+24,15.0,mappo_cam4-16_nocount,tuned_margin,0.0267,0.0197,0.0346,3.9675,mappo_cam4-16_nocount worse
+24,15.0,mappo_cam4-16_nocount,state_aware_best,0.0279,0.0186,0.038,4.1606,mappo_cam4-16_nocount worse
+24,15.0,mappo_cam4-16_nocount,ippo,0.0038,-0.0029,0.0109,0.5425,no significant difference
+24,15.0,mappo_cam4-16_nocount,mappo,-0.109,-0.1235,-0.0946,-13.4849,mappo_cam4-16_nocount better
+24,15.0,mappo_cam4-16_nocount,mappo_cam4-8,-0.1038,-0.1175,-0.09,-12.9191,mappo_cam4-16_nocount better
+24,15.0,mappo_cam4-8,fixed_best,-0.0096,-0.0322,0.0125,-1.1756,no significant difference
+24,15.0,mappo_cam4-8,count_rule,0.004,-0.0105,0.0196,0.5002,no significant difference
+24,15.0,mappo_cam4-8,periodic_reprofile,-0.296,-0.3221,-0.269,-26.931,mappo_cam4-8 better
+24,15.0,mappo_cam4-8,budget_sharing,0.0675,0.0523,0.0823,9.18,mappo_cam4-8 worse
+24,15.0,mappo_cam4-8,tuned_margin,0.1304,0.1159,0.1441,19.3918,mappo_cam4-8 worse
+24,15.0,mappo_cam4-8,state_aware_best,0.1317,0.1198,0.1435,19.6135,mappo_cam4-8 worse
+24,15.0,mappo_cam4-8,ippo,0.1075,0.0945,0.1209,15.4587,mappo_cam4-8 worse
+24,15.0,mappo_cam4-8,mappo,-0.0053,-0.0218,0.0107,-0.6498,no significant difference
+24,15.0,mappo_cam4-8,mappo_cam4-16_nocount,0.1038,0.09,0.1169,14.8357,mappo_cam4-8 worse
