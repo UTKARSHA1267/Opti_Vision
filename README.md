@@ -7,28 +7,45 @@ safety; this repository evaluates it on **city traffic monitoring** (vehicle cou
 A **MAPPO** policy trained on 4–16 cameras runs systems of up to **48 cameras without retraining**, and on unseen
 test cameras beats the fixed configurations used in practice by **14–26%**.
 
-<<<<<<< HEAD
-=======
-**Team members : Krish Teckchandani (B23CS1092)
-               : Utkarsha (B24CM1062) **
+**Team members:** Krish Teckchandani (B23CS1092), Utkarsha (B24CM1062)  
 **Repository:** https://github.com/UTKARSHA1267/Opti_Vision
 
->>>>>>> fe8f5bf (Add trained RL agents, demo script, README quick start)
 ---
 
-## Quick start: run the trained agents (no retraining, no GPU, no dataset download)
+## Installation
 
-The trained RL agents and the precomputed simulator table are included in this repository, so evaluation needs
-neither the UA-DETRAC download nor GPU profiling.
+Requires Python 3.11 and, for training or the real-GPU check, an NVIDIA GPU with CUDA 12.4. Evaluating the
+trained agents runs on CPU.
 
 ```bash
+git clone https://github.com/UTKARSHA1267/Opti_Vision.git
+cd Opti_Vision
+conda create -n optivision python=3.11 -y
+conda activate optivision
 pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124
 pip install -r requirements.txt
+```
 
+## Dependencies
+
+All pinned in `requirements.txt`: PyTorch 2.6.0 (CUDA 12.4), Ultralytics 8.4 (YOLOv8), Stable-Baselines3 2.6.0,
+Gymnasium 1.1.1, LightGBM 4.7, NumPy, pandas, PyArrow, SciPy, Matplotlib, OpenCV, PyYAML, tqdm.
+Stable-Baselines3 and Gymnasium are pinned on purpose: newer Stable-Baselines3 versions require a newer PyTorch
+and would replace the CUDA 12.4 build.
+
+## Run the trained agent (no retraining, no GPU, no dataset download)
+
+The trained RL agents and the precomputed simulator table are included in this repository.
+
+```bash
 cd phase3
-EVAL_TARGET=reference python demo_agent.py                  # trained MAPPO vs baselines, <1 min on CPU
-EVAL_TARGET=reference python demo_agent.py --cameras 48     # same policy on 48 cameras
+EVAL_TARGET=reference python demo_agent.py                  # trained MAPPO vs baselines, under 1 min on CPU
+EVAL_TARGET=reference python demo_agent.py --cameras 48     # the same policy on 48 cameras
+EVAL_TARGET=reference python demo_agent.py --budget 3       # tight GPU budget (3, 7 or 15 ms per camera-second)
 EVAL_TARGET=reference python evaluate_mappo.py --split test --cameras 6 12 24 48   # full test evaluation (~2 h)
+
+cd ../phase2
+EVAL_TARGET=reference python final_eval.py                  # single-agent PPO test evaluation (3 seeds)
 ```
 
 **Trained agents** (all under `outputs/results_reference/` of their phase):
@@ -164,17 +181,14 @@ phase4/   real-GPU check, figures for the report and README
 | `phase4/calibrate_live.py` | Calibrates capacity to the measured live speed and recomputes lateness |
 | `phase4/make_figures.py` | All figures from saved results |
 
-## Reproduce from scratch
+## Execution commands and full reproduction
 
-The full pipeline retrains everything; it needs the dataset and about 1 h of GPU profiling.
-Environment: Python 3.11, PyTorch 2.6 (CUDA 12.4), Ultralytics 8.4, Stable-Baselines3 2.6, Gymnasium 1.1,
-LightGBM 4.7. Data: [UA-DETRAC](https://www.kaggle.com/datasets/bratjay/ua-detrac-orig) under
-`phase1/DATASET/DETRAC/`. All commands use `EVAL_TARGET=reference`.
+The full pipeline rebuilds everything from the raw videos and retrains all agents; it needs the dataset and
+about 1 h of GPU profiling. Download [UA-DETRAC](https://www.kaggle.com/datasets/bratjay/ua-detrac-orig) into
+`phase1/DATASET/DETRAC/`, then run the phases in order:
 
 ```bash
-# Setup
-pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124
-pip install -r requirements.txt
+export EVAL_TARGET=reference      # measure accuracy against the most expensive setting
 
 # Phase 1: data, profiling (GPU, ~1 h), simulator
 cd phase1
