@@ -1,11 +1,50 @@
-# Opti_Vision: Budget-Aware Multi-Agent RL for City-Scale Traffic Video Analytics
+# OptiVision: Budget-Aware Multi-Agent Reinforcement Learning for Adaptive Video Intelligence
 
-**One GPU, many traffic cameras, a fixed compute budget.** Every 2 seconds, Opti_Vision decides which YOLO setting
-(model, resolution, frame rate) each camera gets, so the city counts vehicles as accurately as possible without
-results arriving late. A **MAPPO** policy trained on 4–16 cameras runs systems of up to **48 cameras without
-retraining**, and on unseen test cameras beats the fixed configurations used in practice by **14–26%**.
+**OptiVision** is a MAPPO-based framework that allocates a shared GPU budget across many video streams by adapting
+each stream's detection model, resolution and frame rate, maximising analytical accuracy while keeping computation
+and latency within budget. It targets video surveillance, industrial inspection, traffic monitoring and public
+safety; this repository evaluates it on **city traffic monitoring** (vehicle counting with YOLO on UA-DETRAC).
+A **MAPPO** policy trained on 4–16 cameras runs systems of up to **48 cameras without retraining**, and on unseen
+test cameras beats the fixed configurations used in practice by **14–26%**.
 
+<<<<<<< HEAD
+=======
+**Team members : Krish Teckchandani (B23CS1092)
+               : Utkarsha (B24CM1062) **
+**Repository:** https://github.com/UTKARSHA1267/Opti_Vision
+
+>>>>>>> fe8f5bf (Add trained RL agents, demo script, README quick start)
 ---
+
+## Quick start: run the trained agents (no retraining, no GPU, no dataset download)
+
+The trained RL agents and the precomputed simulator table are included in this repository, so evaluation needs
+neither the UA-DETRAC download nor GPU profiling.
+
+```bash
+pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124
+pip install -r requirements.txt
+
+cd phase3
+EVAL_TARGET=reference python demo_agent.py                  # trained MAPPO vs baselines, <1 min on CPU
+EVAL_TARGET=reference python demo_agent.py --cameras 48     # same policy on 48 cameras
+EVAL_TARGET=reference python evaluate_mappo.py --split test --cameras 6 12 24 48   # full test evaluation (~2 h)
+```
+
+**Trained agents** (all under `outputs/results_reference/` of their phase):
+
+| Agent | Checkpoint | Notes |
+|---|---|---|
+| **MAPPO, main agent** | `phase3/.../mappo_cam4-16_nocount/best.pt` | trained on 4–16 cameras, runs any number |
+| MAPPO, 6 cameras | `phase3/.../mappo/best.pt` | first version, with camera-count input |
+| MAPPO, 4–8 cameras | `phase3/.../mappo_cam4-8/best.pt` | scaling step before the camera-count fix |
+| Independent PPO (ablation) | `phase3/.../ippo/best.pt` | per-agent critics |
+| PPO margin controller, 3 seeds | `phase2/.../rl_dynamic_margin{,_s1,_s2}/ppo_best.zip` + `vecnorm_best.pkl` | single agent, 6 cameras |
+| PPO steering agents | `phase2/.../rl/`, `phase2/.../rl_dynamic/` | static and dynamic world |
+
+Each folder also holds `final.pt` / `ppo_final.zip` (last step) and `training_log.csv`. The simulator table
+`phase1/outputs/env/segment_table.npz` (profiled YOLO errors and costs for every segment and setting) is all the
+evaluation scripts need.
 
 ## The problem
 
@@ -120,12 +159,14 @@ phase4/   real-GPU check, figures for the report and README
 | `phase2/final_eval.py` | Phase 2 test evaluation with paired confidence intervals |
 | `phase3/ma_env.py`, `mappo.py`, `train_mappo.py` | Multi-agent environment and MAPPO |
 | `phase3/evaluate_mappo.py` | Evaluation at any number of cameras |
+| `phase3/demo_agent.py` | Runs the trained MAPPO against baselines in under a minute |
 | `phase4/live_run.py` | Replays a test scenario with real YOLO on the GPU and measures GPU time |
 | `phase4/calibrate_live.py` | Calibrates capacity to the measured live speed and recomputes lateness |
 | `phase4/make_figures.py` | All figures from saved results |
 
-## Reproduce
+## Reproduce from scratch
 
+The full pipeline retrains everything; it needs the dataset and about 1 h of GPU profiling.
 Environment: Python 3.11, PyTorch 2.6 (CUDA 12.4), Ultralytics 8.4, Stable-Baselines3 2.6, Gymnasium 1.1,
 LightGBM 4.7. Data: [UA-DETRAC](https://www.kaggle.com/datasets/bratjay/ua-detrac-orig) under
 `phase1/DATASET/DETRAC/`. All commands use `EVAL_TARGET=reference`.
