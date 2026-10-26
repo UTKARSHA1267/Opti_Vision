@@ -1,0 +1,5 @@
+method,err,gpu_planned_ms,gpu_measured_ms,late_simulator_%,late_real_calibrated_%
+fixed_best,0.121,43.636,91.561,36.0,68.0
+budget_sharing,0.114,61.64,86.888,37.333,33.333
+tuned_margin,0.138,33.883,67.946,6.0,10.0
+mappo,0.133,36.87,70.087,4.0,16.667

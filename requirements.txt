@@ -1,0 +1,24 @@
+# Opti_Vision: Python 3.11
+#
+# PyTorch with CUDA 12.4 (install this first, from the PyTorch index):
+#   pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124
+# Then:
+#   pip install -r requirements.txt
+#
+# Stable-Baselines3 2.6.0 and Gymnasium 1.1.1 are pinned on purpose: newer Stable-Baselines3 versions
+# require a newer PyTorch and would replace the CUDA 12.4 build.
+
+torch==2.6.0
+torchvision==0.21.0
+ultralytics==8.4.182
+stable-baselines3==2.6.0
+gymnasium==1.1.1
+lightgbm==4.7.0
+numpy
+pandas
+pyarrow
+scipy
+matplotlib
+opencv-python-headless
+pyyaml
+tqdm
