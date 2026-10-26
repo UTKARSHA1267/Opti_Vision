@@ -5,9 +5,6 @@
 results arriving late. A **MAPPO** policy trained on 4–16 cameras runs systems of up to **48 cameras without
 retraining**, and on unseen test cameras beats the fixed configurations used in practice by **14–26%**.
 
-**Team:** Nilesh Mishra · *(add team members)*
-**Repository:** https://github.com/UTKARSHA1267/Opti_Vision
-
 ---
 
 ## The problem
